@@ -37,13 +37,13 @@ namespace SocketServer
                 } catch
                 {
                     Console.Clear();
-                    Console.WriteLine("Ожидаем пользователя..."); 
+                    user.GetInfo();
                 }
             }
-            WorkServer(listener,sender);
+            WorkServer(listener,sender,user.Name);
         }
 
-        static void WorkServer(Socket listener,Socket sender)
+        static void WorkServer(Socket listener,Socket sender,String Name)
         {
             while (true)
             {               
@@ -56,7 +56,7 @@ namespace SocketServer
                 threadReceive.Start(server);
                 while (isClientOnline)
                 {                    
-                    queue.Add("client 2:" + Console.ReadLine());
+                    queue.Add(Name + ": " + Console.ReadLine());
                 }
             }
         }                        

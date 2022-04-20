@@ -18,6 +18,7 @@ namespace SocketServer
         public IPAddress ipClient;
         public SingIn()
         {
+            GetName();
             GetIpClient();
             GetClientPort();
             GetMyPort();
@@ -36,6 +37,19 @@ namespace SocketServer
         {
             Console.WriteLine("Введите port, который желаете открыть для подключения: ");
             myPort = int.Parse(Console.ReadLine());
-        }        
+        }
+        private void GetName()
+        {
+            Console.WriteLine("Введите имя: ");
+            Name = Console.ReadLine();
+        }
+
+        public void GetInfo()
+        {
+            Console.WriteLine("Ваше имя: " + Name);
+            Console.WriteLine("Ваш ip: " + myIp);
+            Console.WriteLine("Ваш port: " + myPort);
+            Console.WriteLine("Запрос на подключение к: " + ipClient + ":" + clientPort);
+        }
     }
 }
